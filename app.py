@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="PDF FAQ Bot", 
     layout="wide",
     initial_sidebar_state="expanded",
-    page_icon="🤖"
+    page_icon=""
 )
 
 # Custom CSS with animations and modern design
@@ -114,7 +114,9 @@ st.markdown("""
     
     /* Title Styling */
     h1 {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #667eea;  /* Einfache Farbe statt Gradient */
+        background: none;  
+        -webkit-background-clip: unset;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
