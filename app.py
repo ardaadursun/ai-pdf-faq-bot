@@ -114,7 +114,7 @@ st.markdown("""
     
     /* Title Styling */
     h1 {
-        color: #667eea;  /* Einfache Farbe statt Gradient */
+        background: rgba(255, 255, 255, 0.95);
         background: none;  
         -webkit-background-clip: unset;
         -webkit-background-clip: text;
