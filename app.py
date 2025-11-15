@@ -25,14 +25,16 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Ensure all text is visible */
+    /* Ensure all text is visible - 100% Druckkraft */
     body, p, span, div, label {
-        color: #111827 !important;
+        color: #000000 !important;
+        font-weight: 600 !important;
     }
     
-    /* Streamlit specific text elements */
+    /* Streamlit specific text elements - 100% Druckkraft */
     .stMarkdown, .stText, .stCaption {
-        color: #111827 !important;
+        color: #000000 !important;
+        font-weight: 600 !important;
     }
     
     /* Main Container */
@@ -124,43 +126,48 @@ st.markdown("""
         }
     }
     
-    /* Title Styling */
+    /* Title Styling - 100% Druckkraft */
     h1 {
-        color: #111827 !important;
-        font-weight: 700;
+        color: #000000 !important;
+        font-weight: 900 !important;
         font-size: 2.5rem;
         margin-bottom: 1rem;
         animation: fadeInUp 0.6s ease-out;
+        letter-spacing: -0.5px;
     }
     
     h2, h3, h4, h5, h6 {
-        color: #1f2937 !important;
-        font-weight: 600;
+        color: #000000 !important;
+        font-weight: 800 !important;
         animation: fadeIn 0.5s ease-out;
+        letter-spacing: -0.3px;
     }
     
-    /* Paragraph and text styling */
+    /* Paragraph and text styling - 100% Druckkraft */
     p {
-        color: #374151 !important;
+        color: #000000 !important;
+        font-weight: 600 !important;
     }
     
-    /* Labels and captions */
+    /* Labels and captions - 100% Druckkraft */
     label, .stCaption {
-        color: #4b5563 !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
-    /* Button Styling */
+    /* Button Styling - 100% Druckkraft */
     .stButton > button {
         background: #2563eb;
         color: white;
         border: none;
         border-radius: 8px;
         padding: 0.75rem 2rem;
-        font-weight: 600;
+        font-weight: 700 !important;
         font-size: 1rem;
         transition: all 0.3s ease;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         animation: fadeIn 0.5s ease-out;
+        letter-spacing: 0.3px;
     }
     
     .stButton > button:hover {
@@ -194,27 +201,27 @@ st.markdown("""
         background: #f3f4f6;
         border-radius: 8px 8px 0 0;
         padding: 1rem 2rem;
-        font-weight: 500;
+        font-weight: 700 !important;
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-out;
-        color: #6b7280;
+        color: #000000 !important;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
         background: #e5e7eb;
         transform: translateY(-2px);
-        color: #374151;
+        color: #000000 !important;
     }
     
     .stTabs [aria-selected="true"] {
         background: white;
-        color: #2563eb;
-        font-weight: 600;
+        color: #2563eb !important;
+        font-weight: 800 !important;
         box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
         border-bottom: 2px solid #2563eb;
     }
     
-    /* Form Styling */
+    /* Form Styling - 100% Druckkraft */
     .stTextInput > div > div > input {
         border-radius: 8px;
         border: 1px solid #d1d5db;
@@ -222,6 +229,8 @@ st.markdown("""
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-out;
         background: white;
+        color: #000000 !important;
+        font-weight: 600 !important;
     }
     
     .stTextInput > div > div > input:focus {
@@ -269,17 +278,19 @@ st.markdown("""
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
     
-    /* Ensure chat message text is visible */
+    /* Ensure chat message text is visible - 100% Druckkraft */
     .stChatMessage[data-testid="assistant"] p,
     .stChatMessage[data-testid="assistant"] div,
     .stChatMessage[data-testid="assistant"] span {
-        color: #111827 !important;
+        color: #000000 !important;
+        font-weight: 600 !important;
     }
     
     .stChatMessage[data-testid="user"] p,
     .stChatMessage[data-testid="user"] div,
     .stChatMessage[data-testid="user"] span {
         color: white !important;
+        font-weight: 700 !important;
     }
     
     /* Sidebar Styling */
@@ -289,14 +300,15 @@ st.markdown("""
         border-right: 1px solid #e5e7eb;
     }
     
-    /* Ensure sidebar text is visible */
+    /* Ensure sidebar text is visible - 100% Druckkraft */
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3,
     [data-testid="stSidebar"] div,
     [data-testid="stSidebar"] span {
-        color: #111827 !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
     /* Success/Error Messages */
@@ -336,21 +348,25 @@ st.markdown("""
         border: 1px solid #93c5fd;
     }
     
-    /* Ensure info/warning/error text is visible */
+    /* Ensure info/warning/error text is visible - 100% Druckkraft */
     .stInfo p, .stInfo div, .stInfo span {
         color: #1e40af !important;
+        font-weight: 700 !important;
     }
     
     .stWarning p, .stWarning div, .stWarning span {
         color: #92400e !important;
+        font-weight: 700 !important;
     }
     
     .stSuccess p, .stSuccess div, .stSuccess span {
         color: #065f46 !important;
+        font-weight: 700 !important;
     }
     
     .stError p, .stError div, .stError span {
         color: #991b1b !important;
+        font-weight: 700 !important;
     }
     
     /* PDF Cards */
@@ -372,17 +388,24 @@ st.markdown("""
         border-color: #2563eb;
     }
     
-    /* Ensure PDF card text is visible */
+    /* Ensure PDF card text is visible - 100% Druckkraft */
     .pdf-card p, .pdf-card h4, .pdf-card div, .pdf-card span {
-        color: #111827 !important;
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
-    /* Selectbox Styling */
+    .pdf-card h4 {
+        font-weight: 800 !important;
+    }
+    
+    /* Selectbox Styling - 100% Druckkraft */
     .stSelectbox > div > div > select {
         border-radius: 8px;
         border: 1px solid #d1d5db;
         transition: all 0.3s ease;
         background: white;
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
     .stSelectbox > div > div > select:focus {
@@ -397,7 +420,7 @@ st.markdown("""
         border-right-color: #3b82f6;
     }
     
-    /* Chat Input */
+    /* Chat Input - 100% Druckkraft */
     .stChatInput > div > div > input {
         border-radius: 12px;
         border: 1px solid #d1d5db;
@@ -405,6 +428,8 @@ st.markdown("""
         font-size: 1rem;
         transition: all 0.3s ease;
         background: white;
+        color: #000000 !important;
+        font-weight: 600 !important;
     }
     
     .stChatInput > div > div > input:focus {
