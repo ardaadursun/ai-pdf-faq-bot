@@ -149,6 +149,41 @@ st.markdown("""
         border: 1px solid #e5e7eb;
     }
     
+    /* Login Container - Alle Texte schwarz */
+    .login-container h1,
+    .login-container h2,
+    .login-container h3,
+    .login-container h4,
+    .login-container p,
+    .login-container span,
+    .login-container div,
+    .login-container label,
+    .login-container * {
+        color: #000000 !important;
+    }
+    
+    /* Tabs im Login Container - Schwarz */
+    .login-container .stTabs [data-baseweb="tab"] {
+        color: #000000 !important;
+    }
+    
+    .login-container .stTabs [aria-selected="true"] {
+        color: #2563eb !important;
+    }
+    
+    /* Form Labels im Login Container - Schwarz */
+    .login-container .stTextInput label,
+    .login-container .stTextInput span,
+    .login-container label {
+        color: #000000 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Input Placeholder - Grau (für bessere UX) */
+    .login-container .stTextInput input::placeholder {
+        color: #9ca3af !important;
+    }
+    
     /* Main App Container */
     .main-app-container {
         background: white;
@@ -159,6 +194,47 @@ st.markdown("""
         animation: fadeIn 0.5s ease-out;
         margin: 1rem 0;
         border: 1px solid #e5e7eb;
+    }
+    
+    /* Main App Container - Alle Texte schwarz */
+    .main-app-container h1,
+    .main-app-container h2,
+    .main-app-container h3,
+    .main-app-container h4,
+    .main-app-container p,
+    .main-app-container span,
+    .main-app-container div,
+    .main-app-container label,
+    .main-app-container * {
+        color: #000000 !important;
+    }
+    
+    /* Tabs im Main Container - Schwarz */
+    .main-app-container .stTabs [data-baseweb="tab"] {
+        color: #000000 !important;
+    }
+    
+    .main-app-container .stTabs [aria-selected="true"] {
+        color: #2563eb !important;
+    }
+    
+    /* File Uploader Label - Schwarz */
+    .main-app-container .stFileUploader label,
+    .main-app-container .stFileUploader span,
+    .main-app-container .stFileUploader div {
+        color: #000000 !important;
+    }
+    
+    /* Info Messages im Main Container - Original Farben beibehalten */
+    .main-app-container .stInfo {
+        background: #dbeafe !important;
+        color: #1e40af !important;
+    }
+    
+    .main-app-container .stInfo p,
+    .main-app-container .stInfo span,
+    .main-app-container .stInfo div {
+        color: #1e40af !important;
     }
     
     /* Animations */
