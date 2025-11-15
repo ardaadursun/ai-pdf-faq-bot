@@ -190,7 +190,7 @@ st.markdown("""
     }
     
     button[kind="primary"] {
-        background: #000000 !important;
+        background: #C0C0C0 !important;
         color: #ffffff !important;
     }
     
