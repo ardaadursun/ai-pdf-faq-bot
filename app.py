@@ -117,6 +117,15 @@ st.markdown("""
         color: #000000 !important;
     }
     
+    /* Buttons in Main App Container - White Text */
+    .main-app-container .stButton > button {
+        color: #ffffff !important;
+    }
+    
+    .main-app-container .stButton > button * {
+        color: #ffffff !important;
+    }
+    
     /* Animations */
     @keyframes fadeIn {
         from {
@@ -185,7 +194,7 @@ st.markdown("""
         font-weight: 500;
         transition: all 0.2s ease;
         animation: fadeIn 0.5s ease-out;
-        color: #ffffff !important;
+        color: #000000 !important;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
