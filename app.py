@@ -380,22 +380,83 @@ st.markdown("""
         font-weight: 700 !important;
     }
     
-    /* Sidebar Styling */
+    /* Sidebar Styling - Dunkler Hintergrund, weiße Schrift */
     .css-1d391kg {
-        background: white;
+        background: #1f2937 !important;
         backdrop-filter: none;
-        border-right: 1px solid #e5e7eb;
+        border-right: 1px solid #374151;
     }
     
-    /* Ensure sidebar text is visible - 100% Druckkraft */
+    /* Sidebar Container - Dunkel */
+    [data-testid="stSidebar"] {
+        background: #1f2937 !important;
+    }
+    
+    /* Ensure sidebar text is visible - Weiß und kräftig */
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] h1,
     [data-testid="stSidebar"] h2,
     [data-testid="stSidebar"] h3,
     [data-testid="stSidebar"] div,
-    [data-testid="stSidebar"] span {
-        color: #000000 !important;
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] * {
+        color: white !important;
         font-weight: 700 !important;
+    }
+    
+    /* Sidebar Separator - Hellgrau */
+    [data-testid="stSidebar"] hr {
+        border-color: #4b5563 !important;
+    }
+    
+    /* Sidebar Icons - Weiß */
+    [data-testid="stSidebar"] svg,
+    [data-testid="stSidebar"] path,
+    [data-testid="stSidebar"] circle,
+    [data-testid="stSidebar"] rect {
+        fill: white !important;
+        stroke: white !important;
+    }
+    
+    /* Streamlit App Label oben links - Weiß */
+    [data-testid="stAppViewContainer"] [class*="appview"],
+    [data-testid="stAppViewContainer"] [class*="label"],
+    [data-testid="stAppViewContainer"] [class*="badge"],
+    [data-testid="stAppViewContainer"] [class*="streamlitApp"] {
+        background: #1f2937 !important;
+        color: white !important;
+    }
+    
+    /* Alle Elemente oben links - Weiß */
+    [data-testid="stAppViewContainer"] > div:first-child,
+    [data-testid="stAppViewContainer"] > div:first-child * {
+        color: white !important;
+    }
+    
+    /* Spezifisch für das App-Label */
+    div[class*="appview"] [class*="badge"],
+    div[class*="appview"] [class*="label"],
+    div[class*="streamlitApp"] {
+        background: #1f2937 !important;
+        color: white !important;
+        border-color: #4b5563 !important;
+    }
+    
+    /* Alle Labels und Badges oben links - Weiß */
+    [class*="badge"],
+    [class*="label"][class*="app"],
+    [class*="streamlitApp"] {
+        background: #1f2937 !important;
+        color: white !important;
+        border-color: #4b5563 !important;
+    }
+    
+    /* Universeller Selektor für alle Elemente oben links */
+    .stApp > div:first-child,
+    .stApp > div:first-child *,
+    [data-testid="stAppViewContainer"] > div:first-child * {
+        color: white !important;
     }
     
     /* Success/Error Messages */
