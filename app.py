@@ -248,12 +248,12 @@ st.markdown("""
     }
     
     .stFileUploader:hover {
-        border-color: #000000;
+        border-color: #C0C0C0;
         background: #f5f5f5;
     }
     
     .stFileUploader * {
-        color: #000000 !important;
+        color: #C0C0C0 !important;
     }
     
     /* Chat Messages */
