@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="PDF FAQ Bot", 
     layout="wide",
     initial_sidebar_state="expanded",
-    page_icon="🤖"
+    page_icon=None
 )
 
 # Custom CSS with animations and modern design
@@ -23,6 +23,16 @@ st.markdown("""
     /* Global Styles */
     * {
         font-family: 'Inter', sans-serif;
+    }
+    
+    /* Ensure all text is visible */
+    body, p, span, div, label {
+        color: #111827 !important;
+    }
+    
+    /* Streamlit specific text elements */
+    .stMarkdown, .stText, .stCaption {
+        color: #111827 !important;
     }
     
     /* Main Container */
@@ -116,17 +126,27 @@ st.markdown("""
     
     /* Title Styling */
     h1 {
-        color: #111827;
+        color: #111827 !important;
         font-weight: 700;
         font-size: 2.5rem;
         margin-bottom: 1rem;
         animation: fadeInUp 0.6s ease-out;
     }
     
-    h2, h3 {
-        color: #1f2937;
+    h2, h3, h4, h5, h6 {
+        color: #1f2937 !important;
         font-weight: 600;
         animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Paragraph and text styling */
+    p {
+        color: #374151 !important;
+    }
+    
+    /* Labels and captions */
+    label, .stCaption {
+        color: #4b5563 !important;
     }
     
     /* Button Styling */
@@ -249,11 +269,34 @@ st.markdown("""
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
     
+    /* Ensure chat message text is visible */
+    .stChatMessage[data-testid="assistant"] p,
+    .stChatMessage[data-testid="assistant"] div,
+    .stChatMessage[data-testid="assistant"] span {
+        color: #111827 !important;
+    }
+    
+    .stChatMessage[data-testid="user"] p,
+    .stChatMessage[data-testid="user"] div,
+    .stChatMessage[data-testid="user"] span {
+        color: white !important;
+    }
+    
     /* Sidebar Styling */
     .css-1d391kg {
         background: white;
         backdrop-filter: none;
         border-right: 1px solid #e5e7eb;
+    }
+    
+    /* Ensure sidebar text is visible */
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] div,
+    [data-testid="stSidebar"] span {
+        color: #111827 !important;
     }
     
     /* Success/Error Messages */
@@ -286,11 +329,28 @@ st.markdown("""
     
     .stInfo {
         background: #dbeafe;
-        color: #1e40af;
+        color: #1e40af !important;
         border-radius: 8px;
         padding: 1rem;
         animation: fadeInUp 0.5s ease-out;
         border: 1px solid #93c5fd;
+    }
+    
+    /* Ensure info/warning/error text is visible */
+    .stInfo p, .stInfo div, .stInfo span {
+        color: #1e40af !important;
+    }
+    
+    .stWarning p, .stWarning div, .stWarning span {
+        color: #92400e !important;
+    }
+    
+    .stSuccess p, .stSuccess div, .stSuccess span {
+        color: #065f46 !important;
+    }
+    
+    .stError p, .stError div, .stError span {
+        color: #991b1b !important;
     }
     
     /* PDF Cards */
@@ -310,6 +370,11 @@ st.markdown("""
         transform: translateY(-2px);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         border-color: #2563eb;
+    }
+    
+    /* Ensure PDF card text is visible */
+    .pdf-card p, .pdf-card h4, .pdf-card div, .pdf-card span {
+        color: #111827 !important;
     }
     
     /* Selectbox Styling */
@@ -407,43 +472,43 @@ def show_login_page():
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown('<div class="login-container">', unsafe_allow_html=True)
-        st.title(" PDF FAQ Bot")
+        st.title("PDF FAQ Bot")
         st.markdown("Willkommen zurück!")
         st.markdown("---")
         
-        tab1, tab2 = st.tabs([" Login", " Registrierung"])
+        tab1, tab2 = st.tabs(["Login", "Registrierung"])
         
         with tab1:
             with st.form("login_form"):
                 st.markdown("#### Anmelden")
-                username = st.text_input(" Benutzername", placeholder="Dein Benutzername")
-                password = st.text_input(" Passwort", type="password", placeholder="Dein Passwort")
-                submit = st.form_submit_button(" Einloggen", use_container_width=True)
+                username = st.text_input("Benutzername", placeholder="Dein Benutzername")
+                password = st.text_input("Passwort", type="password", placeholder="Dein Passwort")
+                submit = st.form_submit_button("Einloggen", use_container_width=True)
                 
                 if submit:
                     user_id = user_service.authenticate_user(username, password)
                     if user_id:
                         st.session_state.user_id = user_id
                         st.session_state.username = username
-                        st.success("✅ Erfolgreich eingeloggt!")
+                        st.success("Erfolgreich eingeloggt!")
                         st.balloons()
                         st.rerun()
                     else:
-                        st.error("❌ Ungültige Anmeldedaten!")
+                        st.error("Ungültige Anmeldedaten!")
         
         with tab2:
             with st.form("register_form"):
                 st.markdown("#### Neuen Account erstellen")
-                new_username = st.text_input("👤 Neuer Benutzername", placeholder="Wähle einen Benutzernamen")
-                new_password = st.text_input("🔒 Neues Passwort", type="password", placeholder="Sicheres Passwort")
-                confirm_password = st.text_input("🔒 Passwort bestätigen", type="password", placeholder="Passwort wiederholen")
-                submit = st.form_submit_button("✨ Registrieren", use_container_width=True)
+                new_username = st.text_input("Neuer Benutzername", placeholder="Wähle einen Benutzernamen")
+                new_password = st.text_input("Neues Passwort", type="password", placeholder="Sicheres Passwort")
+                confirm_password = st.text_input("Passwort bestätigen", type="password", placeholder="Passwort wiederholen")
+                submit = st.form_submit_button("Registrieren", use_container_width=True)
                 
                 if submit:
                     if new_password != confirm_password:
-                        st.error("❌ Passwörter stimmen nicht überein!")
+                        st.error("Passwörter stimmen nicht überein!")
                     elif user_service.user_exists(new_username):
-                        st.error("❌ Benutzername bereits vergeben!")
+                        st.error("Benutzername bereits vergeben!")
                     else:
                         user_id = user_service.create_user(new_username, new_password)
                         st.session_state.user_id = user_id
@@ -460,28 +525,28 @@ def show_main_app():
     # Header with gradient title
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.title(" PDF FAQ Bot")
+        st.title("PDF FAQ Bot")
     with col2:
         st.markdown("<br>", unsafe_allow_html=True)
-        if st.button(" Abmelden", use_container_width=True):
+        if st.button("Abmelden", use_container_width=True):
             st.session_state.user_id = None
             st.session_state.username = None
             st.rerun()
     
-    st.sidebar.title(f" Willkommen, {st.session_state.username}")
+    st.sidebar.title(f"Willkommen, {st.session_state.username}")
     st.sidebar.markdown("---")
     
     # Get user's PDFs
     pdfs = db.get_pdfs_by_user(st.session_state.user_id)
     
-    tab1, tab2 = st.tabs(["📤 PDFs hochladen", "💬 Fragen stellen"])
+    tab1, tab2 = st.tabs(["PDFs hochladen", "Fragen stellen"])
     
     with tab1:
-        st.header(" PDF hochladen")
+        st.header("PDF hochladen")
         st.markdown("Lade deine PDF-Dokumente hoch und lass sie automatisch verarbeiten.")
         
         uploaded_files = st.file_uploader(
-            " Wähle PDF-Dateien aus",
+            "Wähle PDF-Dateien aus",
             type=['pdf'],
             accept_multiple_files=True,
             help="Du kannst mehrere PDFs gleichzeitig hochladen"
@@ -489,64 +554,64 @@ def show_main_app():
         
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
-            if st.button("⚡ PDFs verarbeiten", type="primary", use_container_width=True):
+            if st.button("PDFs verarbeiten", type="primary", use_container_width=True):
                 if uploaded_files:
                     progress_bar = st.progress(0)
                     status_text = st.empty()
                     
                     for i, uploaded_file in enumerate(uploaded_files):
-                        status_text.text(f"🔄 Verarbeite {uploaded_file.name}... ({i+1}/{len(uploaded_files)})")
+                        status_text.text(f"Verarbeite {uploaded_file.name}... ({i+1}/{len(uploaded_files)})")
                         process_pdf(uploaded_file, st.session_state.user_id)
                         progress_bar.progress((i + 1) / len(uploaded_files))
                     
                     status_text.empty()
                     progress_bar.empty()
-                    st.success(f"✅ {len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
+                    st.success(f"{len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
                     st.balloons()
                     st.rerun()
                 else:
-                    st.warning("⚠️ Bitte wähle zuerst PDF-Dateien aus!")
+                    st.warning("Bitte wähle zuerst PDF-Dateien aus!")
         
         # Show uploaded PDFs with cards
         if pdfs:
-            st.subheader("📚 Deine PDFs")
+            st.subheader("Deine PDFs")
             for idx, (pdf_id, filename, upload_date) in enumerate(pdfs):
                 st.markdown(f"""
                 <div class="pdf-card">
-                    <h4> {filename}</h4>
-                    <p style="color: #718096; margin: 0;"> Hochgeladen: {upload_date}</p>
+                    <h4>{filename}</h4>
+                    <p style="color: #718096; margin: 0;">Hochgeladen: {upload_date}</p>
                 </div>
                 """, unsafe_allow_html=True)
         else:
-            st.info("ℹ️ Noch keine PDFs hochgeladen. Lade deine ersten Dokumente hoch!")
+            st.info("Noch keine PDFs hochgeladen. Lade deine ersten Dokumente hoch!")
     
     with tab2:
         col1, col2 = st.columns([3, 1])
         
         with col1:
-            st.header("💬 Chat mit deinen PDFs")
+            st.header("Chat mit deinen PDFs")
             st.markdown("Stelle Fragen zu deinen hochgeladenen Dokumenten und erhalte präzise Antworten.")
         
         with col2:
             st.markdown("<br>", unsafe_allow_html=True)
-            if st.button(" Chat löschen", use_container_width=True):
+            if st.button("Chat löschen", use_container_width=True):
                 st.session_state.chat_history = []
                 st.rerun()
         
         # PDF selection
         if pdfs:
-            pdf_options = ["📚 Alle PDFs"] + [f" {filename}" for pdf_id, filename, _ in pdfs]
-            selected_pdf = st.selectbox(" PDF auswählen", pdf_options, key="pdf_selector")
+            pdf_options = ["Alle PDFs"] + [filename for pdf_id, filename, _ in pdfs]
+            selected_pdf = st.selectbox("PDF auswählen", pdf_options, key="pdf_selector")
             
             selected_pdf_id = None
-            if selected_pdf != "📚 Alle PDFs":
+            if selected_pdf != "Alle PDFs":
                 # Find the matching PDF ID
                 for pdf_id, filename, _ in pdfs:
-                    if f"📄 {filename}" == selected_pdf:
+                    if filename == selected_pdf:
                         selected_pdf_id = pdf_id
                         break
         else:
-            st.warning("⚠️ Bitte lade zuerst PDFs hoch, bevor du Fragen stellst!")
+            st.warning("Bitte lade zuerst PDFs hoch, bevor du Fragen stellst!")
             selected_pdf_id = None
         
         # Initialize chat history in session state
@@ -564,12 +629,12 @@ def show_main_app():
                 with st.chat_message("assistant"):
                     st.markdown(chat_item['answer'])
                     if chat_item.get('source_pdf'):
-                        st.caption(f" **Quelle:** {chat_item['source_pdf']} |  **Seite:** {chat_item['source_page']}")
+                        st.caption(f"**Quelle:** {chat_item['source_pdf']} | **Seite:** {chat_item['source_page']}")
         else:
-            st.info("👋 Stelle deine erste Frage, um zu beginnen! Der Bot wird in deinen PDFs nach Antworten suchen.")
+            st.info("Stelle deine erste Frage, um zu beginnen! Der Bot wird in deinen PDFs nach Antworten suchen.")
         
         # Question input at the bottom (chat style)
-        question = st.chat_input(" Stelle eine Frage zu deinen PDFs...")
+        question = st.chat_input("Stelle eine Frage zu deinen PDFs...")
         
         if question:
             # Add user question to chat
@@ -578,17 +643,17 @@ def show_main_app():
             
             # Get answer
             with st.chat_message("assistant"):
-                with st.spinner(" Denke nach..."):
+                with st.spinner("Denke nach..."):
                     result = qa_service.ask_question(question, st.session_state.user_id, selected_pdf_id)
                 
                 # Display answer with streaming animation
                 _stream_text(result['answer'])
                 
                 if result['source_pdf']:
-                    st.caption(f" **Quelle:** {result['source_pdf']} |  **Seite:** {result['source_page']}")
+                    st.caption(f"**Quelle:** {result['source_pdf']} | **Seite:** {result['source_page']}")
                 
                 if result['relevant_chunks'] == 0:
-                    st.warning(" Keine relevanten Stellen in den Dokumenten gefunden. Versuche eine andere Formulierung.")
+                    st.warning("Keine relevanten Stellen in den Dokumenten gefunden. Versuche eine andere Formulierung.")
             
             # Save to chat history
             st.session_state.chat_history.append({
