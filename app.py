@@ -99,7 +99,7 @@ st.markdown("""
     }
     
     .login-container * {
-        color: #000000 !important;
+        color: #FFFFFF !important;
     }
     
     /* Main App Container - White Background, Black Text */
