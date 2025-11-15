@@ -185,7 +185,7 @@ st.markdown("""
     }
     
     .stButton > button:hover {
-        background: #FFFFFF;
+        background: #C0C0C0;
         transform: translateY(-1px);
     }
     
