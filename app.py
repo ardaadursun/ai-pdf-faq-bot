@@ -14,210 +14,114 @@ st.set_page_config(
     page_icon=None
 )
 
-# Custom CSS with animations and modern design
+# Custom CSS - Fresh Clean Design
 st.markdown("""
 <style>
-    /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
-    /* Global Styles */
     * {
         font-family: 'Inter', sans-serif;
     }
     
-    /* Ensure all text is visible - 100% Druckkraft */
-    body, p, span, div, label {
-        color: #000000 !important;
-        font-weight: 600 !important;
+    /* Main App Background - White */
+    .stApp {
+        background: #ffffff;
     }
     
-    /* Streamlit specific text elements - 100% Druckkraft */
-    .stMarkdown, .stText, .stCaption {
-        color: #000000 !important;
-        font-weight: 600 !important;
-    }
-    
-    /* Main Container */
+    /* Main Content Area - White Background, Black Text */
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
+        background: #ffffff;
     }
     
-    /* Clean Professional Background */
-    .stApp {
-        background: #f8fafc;
-        background-attachment: fixed;
+    .main .block-container * {
+        color: #000000 !important;
     }
     
-    /* Streamlit Header Menu - Weiße Schriften und Symbole */
+    /* Header - Dark Background, White Text */
     header[data-testid="stHeader"] {
-        background: #1f2937 !important;
+        background: #1a1a1a !important;
     }
     
-    /* Header Menu Buttons and Text - Weiß */
-    header[data-testid="stHeader"] button,
-    header[data-testid="stHeader"] a,
-    header[data-testid="stHeader"] span,
-    header[data-testid="stHeader"] div,
-    header[data-testid="stHeader"] p {
-        color: white !important;
+    header[data-testid="stHeader"] * {
+        color: #ffffff !important;
     }
     
-    /* Header Icons - Weiß */
     header[data-testid="stHeader"] svg,
     header[data-testid="stHeader"] path {
-        fill: white !important;
-        stroke: white !important;
-        color: white !important;
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
     }
     
-    /* Header Menu Items - Weiß */
-    header[data-testid="stHeader"] .stToolbar button,
-    header[data-testid="stHeader"] .stToolbar a {
-        color: white !important;
-        fill: white !important;
-    }
-    
-    /* Header Menu Hover */
-    header[data-testid="stHeader"] button:hover,
-    header[data-testid="stHeader"] a:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
-        color: white !important;
-    }
-    
-    /* Dropdown Menu - Dunkler Hintergrund, weiße Schrift */
+    /* Dropdown Menus - Dark Background, White Text */
     [data-baseweb="popover"] {
-        background: #1f2937 !important;
+        background: #1a1a1a !important;
     }
     
-    [data-baseweb="popover"] li,
-    [data-baseweb="popover"] a,
-    [data-baseweb="popover"] span,
-    [data-baseweb="popover"] div {
-        color: white !important;
+    [data-baseweb="popover"] * {
+        color: #ffffff !important;
     }
     
-    [data-baseweb="popover"] li:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
+    [data-baseweb="menu"] * {
+        color: #ffffff !important;
     }
     
-    /* Share, Settings, etc. Menu Items */
-    [data-baseweb="menu"] li,
-    [data-baseweb="menu"] a,
-    [data-baseweb="menu"] span {
-        color: white !important;
+    /* Sidebar - Dark Background, White Text */
+    [data-testid="stSidebar"] {
+        background: #1a1a1a !important;
     }
     
-    [data-baseweb="menu"] li:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
+    [data-testid="stSidebar"] * {
+        color: #ffffff !important;
     }
     
-    /* Spezifische Header-Elemente - Weiß */
-    header[data-testid="stHeader"] [class*="share"],
-    header[data-testid="stHeader"] [class*="menu"],
-    header[data-testid="stHeader"] [class*="button"],
-    header[data-testid="stHeader"] [class*="icon"] {
-        color: white !important;
-        fill: white !important;
+    [data-testid="stSidebar"] svg,
+    [data-testid="stSidebar"] path {
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
     }
     
-    /* Alle SVG-Elemente im Header - Weiß */
-    header[data-testid="stHeader"] * svg,
-    header[data-testid="stHeader"] * path,
-    header[data-testid="stHeader"] * circle,
-    header[data-testid="stHeader"] * rect {
-        fill: white !important;
-        stroke: white !important;
+    [data-testid="stSidebar"] hr {
+        border-color: #404040 !important;
     }
     
-    /* Text im Header - Weiß und kräftig */
-    header[data-testid="stHeader"] * {
-        color: white !important;
-        font-weight: 600 !important;
-    }
-    
-    /* Login Page Styling */
+    /* Login Container - White Background, Black Text */
     .login-container {
-        background: white;
-        backdrop-filter: none;
-        border-radius: 16px;
+        background: #ffffff;
+        border-radius: 12px;
         padding: 3rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        animation: fadeInUp 0.6s ease-out;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.5s ease-out;
         margin: 2rem auto;
         max-width: 500px;
-        border: 1px solid #e5e7eb;
+        border: 1px solid #e0e0e0;
     }
     
-    /* Main App Container */
+    .login-container * {
+        color: #000000 !important;
+    }
+    
+    /* Main App Container - White Background, Black Text */
     .main-app-container {
-        background: white;
-        backdrop-filter: none;
-        border-radius: 16px;
+        background: #ffffff;
+        border-radius: 12px;
         padding: 2rem;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         animation: fadeIn 0.5s ease-out;
         margin: 1rem 0;
-        border: 1px solid #e5e7eb;
+        border: 1px solid #e0e0e0;
     }
     
-    /* Main App Container - Alle Texte schwarz */
-    .main-app-container h1,
-    .main-app-container h2,
-    .main-app-container h3,
-    .main-app-container h4,
-    .main-app-container p,
-    .main-app-container span,
-    .main-app-container div,
-    .main-app-container label,
     .main-app-container * {
         color: #000000 !important;
-    }
-    
-    /* Tabs im Main Container - Schwarz */
-    .main-app-container .stTabs [data-baseweb="tab"] {
-        color: #000000 !important;
-    }
-    
-    .main-app-container .stTabs [aria-selected="true"] {
-        color: #2563eb !important;
-    }
-    
-    /* File Uploader Label - Schwarz */
-    .main-app-container .stFileUploader label,
-    .main-app-container .stFileUploader span,
-    .main-app-container .stFileUploader div {
-        color: #000000 !important;
-    }
-    
-    /* Info Messages im Main Container - Original Farben beibehalten */
-    .main-app-container .stInfo {
-        background: #dbeafe !important;
-        color: #1e40af !important;
-    }
-    
-    .main-app-container .stInfo p,
-    .main-app-container .stInfo span,
-    .main-app-container .stInfo div {
-        color: #1e40af !important;
     }
     
     /* Animations */
     @keyframes fadeIn {
         from {
             opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
         to {
             opacity: 1;
@@ -228,7 +132,7 @@ st.markdown("""
     @keyframes slideIn {
         from {
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(-10px);
         }
         to {
             opacity: 1;
@@ -236,518 +140,254 @@ st.markdown("""
         }
     }
     
-    @keyframes pulse {
-        0%, 100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0.7;
-        }
-    }
-    
-    @keyframes shimmer {
-        0% {
-            background-position: -1000px 0;
-        }
-        100% {
-            background-position: 1000px 0;
-        }
-    }
-    
-    /* Title Styling - 100% Druckkraft */
-    h1 {
+    /* Typography - Black Text on White */
+    h1, h2, h3, h4, h5, h6 {
         color: #000000 !important;
-        font-weight: 900 !important;
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        animation: fadeInUp 0.6s ease-out;
-        letter-spacing: -0.5px;
-    }
-    
-    h2, h3, h4, h5, h6 {
-        color: #000000 !important;
-        font-weight: 800 !important;
+        font-weight: 600;
         animation: fadeIn 0.5s ease-out;
-        letter-spacing: -0.3px;
     }
     
-    /* Paragraph and text styling - 100% Druckkraft */
-    p {
+    p, span, div, label {
         color: #000000 !important;
-        font-weight: 600 !important;
     }
     
-    /* Labels and captions - 100% Druckkraft */
-    label, .stCaption {
-        color: #000000 !important;
-        font-weight: 700 !important;
-    }
-    
-    /* Button Styling - 100% Druckkraft */
+    /* Buttons */
     .stButton > button {
-        background: #2563eb;
-        color: white;
+        background: #000000;
+        color: #ffffff;
         border: none;
         border-radius: 8px;
         padding: 0.75rem 2rem;
-        font-weight: 700 !important;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        font-weight: 500;
+        transition: all 0.2s ease;
         animation: fadeIn 0.5s ease-out;
-        letter-spacing: 0.3px;
     }
     
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        background: #1d4ed8;
+        background: #333333;
+        transform: translateY(-1px);
     }
     
-    .stButton > button:active {
-        transform: translateY(0);
-        background: #1e40af;
-    }
-    
-    /* Primary Button */
     button[kind="primary"] {
-        background: #2563eb !important;
-        animation: pulse 2s infinite;
+        background: #000000 !important;
+        color: #ffffff !important;
     }
     
     button[kind="primary"]:hover {
-        background: #1d4ed8 !important;
+        background: #333333 !important;
     }
     
-    /* Tabs Styling */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background-color: transparent;
-    }
-    
+    /* Tabs */
     .stTabs [data-baseweb="tab"] {
-        background: #f3f4f6;
+        background: #f5f5f5;
         border-radius: 8px 8px 0 0;
         padding: 1rem 2rem;
-        font-weight: 700 !important;
-        transition: all 0.3s ease;
+        font-weight: 500;
+        transition: all 0.2s ease;
         animation: fadeIn 0.5s ease-out;
         color: #000000 !important;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
-        background: #e5e7eb;
-        transform: translateY(-2px);
-        color: #000000 !important;
+        background: #e8e8e8;
     }
     
     .stTabs [aria-selected="true"] {
-        background: white;
-        color: #2563eb !important;
-        font-weight: 800 !important;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-        border-bottom: 2px solid #2563eb;
+        background: #ffffff;
+        color: #000000 !important;
+        font-weight: 600;
+        border-bottom: 2px solid #000000;
     }
     
-    /* Form Styling - 100% Druckkraft */
+    /* Form Inputs */
     .stTextInput > div > div > input {
         border-radius: 8px;
-        border: 1px solid #d1d5db;
+        border: 1px solid #d0d0d0;
         padding: 0.75rem;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         animation: fadeIn 0.5s ease-out;
-        background: white;
+        background: #ffffff;
         color: #000000 !important;
-        font-weight: 600 !important;
     }
     
     .stTextInput > div > div > input:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        border-color: #000000;
         outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
     }
     
     /* File Uploader */
     .stFileUploader {
-        background: #f9fafb;
+        background: #f9f9f9;
         border-radius: 12px;
         padding: 2rem;
-        border: 2px dashed #d1d5db;
-        transition: all 0.3s ease;
+        border: 2px dashed #d0d0d0;
+        transition: all 0.2s ease;
         animation: fadeIn 0.5s ease-out;
     }
     
     .stFileUploader:hover {
-        border-color: #2563eb;
-        background: #f3f4f6;
+        border-color: #000000;
+        background: #f5f5f5;
+    }
+    
+    .stFileUploader * {
+        color: #000000 !important;
     }
     
     /* Chat Messages */
     .stChatMessage {
-        animation: slideIn 0.4s ease-out;
+        animation: slideIn 0.3s ease-out;
         margin-bottom: 1rem;
     }
     
     .stChatMessage[data-testid="user"] {
-        background: #2563eb;
-        color: white;
+        background: #1a1a1a;
+        color: #ffffff;
         border-radius: 16px 16px 4px 16px;
         padding: 1rem;
         margin-left: 20%;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    
+    .stChatMessage[data-testid="user"] * {
+        color: #ffffff !important;
     }
     
     .stChatMessage[data-testid="assistant"] {
-        background: #f9fafb;
+        background: #f5f5f5;
         border-radius: 16px 16px 16px 4px;
         padding: 1rem;
         margin-right: 20%;
-        border: 1px solid #e5e7eb;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e0e0;
     }
     
-    /* Ensure chat message text is visible - 100% Druckkraft */
-    .stChatMessage[data-testid="assistant"] p,
-    .stChatMessage[data-testid="assistant"] div,
-    .stChatMessage[data-testid="assistant"] span {
+    .stChatMessage[data-testid="assistant"] * {
         color: #000000 !important;
-        font-weight: 600 !important;
     }
     
-    .stChatMessage[data-testid="user"] p,
-    .stChatMessage[data-testid="user"] div,
-    .stChatMessage[data-testid="user"] span {
-        color: white !important;
-        font-weight: 700 !important;
+    /* Chat Input */
+    .stChatInput > div > div > input {
+        border-radius: 12px;
+        border: 1px solid #d0d0d0;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        background: #ffffff;
+        color: #000000 !important;
     }
     
-    /* Sidebar Styling - Dunkler Hintergrund, weiße Schrift */
-    .css-1d391kg {
-        background: #1f2937 !important;
-        backdrop-filter: none;
-        border-right: 1px solid #374151;
+    .stChatInput > div > div > input:focus {
+        border-color: #000000;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
     }
     
-    /* Sidebar Container - Dunkel */
-    [data-testid="stSidebar"] {
-        background: #1f2937 !important;
+    /* Selectbox */
+    .stSelectbox > div > div > select {
+        border-radius: 8px;
+        border: 1px solid #d0d0d0;
+        transition: all 0.2s ease;
+        background: #ffffff;
+        color: #000000 !important;
     }
     
-    /* Ensure sidebar text is visible - Weiß und kräftig */
-    [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] h1,
-    [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,
-    [data-testid="stSidebar"] div,
-    [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] label,
-    [data-testid="stSidebar"] * {
-        color: white !important;
-        font-weight: 700 !important;
+    .stSelectbox > div > div > select:focus {
+        border-color: #000000;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
     }
     
-    /* Sidebar Separator - Hellgrau */
-    [data-testid="stSidebar"] hr {
-        border-color: #4b5563 !important;
-    }
-    
-    /* Sidebar Icons - Weiß */
-    [data-testid="stSidebar"] svg,
-    [data-testid="stSidebar"] path,
-    [data-testid="stSidebar"] circle,
-    [data-testid="stSidebar"] rect {
-        fill: white !important;
-        stroke: white !important;
-    }
-    
-    /* Streamlit App Label oben links - Weiß */
-    [data-testid="stAppViewContainer"] [class*="appview"],
-    [data-testid="stAppViewContainer"] [class*="label"],
-    [data-testid="stAppViewContainer"] [class*="badge"],
-    [data-testid="stAppViewContainer"] [class*="streamlitApp"] {
-        background: #1f2937 !important;
-        color: white !important;
-    }
-    
-    /* Alle Elemente oben links - Weiß */
-    [data-testid="stAppViewContainer"] > div:first-child,
-    [data-testid="stAppViewContainer"] > div:first-child * {
-        color: white !important;
-    }
-    
-    /* Spezifisch für das App-Label */
-    div[class*="appview"] [class*="badge"],
-    div[class*="appview"] [class*="label"],
-    div[class*="streamlitApp"] {
-        background: #1f2937 !important;
-        color: white !important;
-        border-color: #4b5563 !important;
-    }
-    
-    /* Alle Labels und Badges oben links - Weiß */
-    [class*="badge"],
-    [class*="label"][class*="app"],
-    [class*="streamlitApp"] {
-        background: #1f2937 !important;
-        color: white !important;
-        border-color: #4b5563 !important;
-    }
-    
-    /* Universeller Selektor für alle Elemente oben links */
-    .stApp > div:first-child,
-    .stApp > div:first-child *,
-    [data-testid="stAppViewContainer"] > div:first-child * {
-        color: white !important;
-    }
-    
-    /* Success/Error Messages */
+    /* Messages */
     .stSuccess {
-        background: #d1fae5;
-        color: #065f46;
+        background: #e8f5e9;
+        color: #2e7d32;
         border-radius: 8px;
         padding: 1rem;
-        animation: fadeInUp 0.5s ease-out;
-        border: 1px solid #a7f3d0;
+        animation: fadeIn 0.5s ease-out;
+        border: 1px solid #c8e6c9;
+    }
+    
+    .stSuccess * {
+        color: #2e7d32 !important;
     }
     
     .stError {
-        background: #fee2e2;
-        color: #991b1b;
+        background: #ffebee;
+        color: #c62828;
         border-radius: 8px;
         padding: 1rem;
-        animation: fadeInUp 0.5s ease-out;
-        border: 1px solid #fecaca;
+        animation: fadeIn 0.5s ease-out;
+        border: 1px solid #ffcdd2;
+    }
+    
+    .stError * {
+        color: #c62828 !important;
     }
     
     .stWarning {
-        background: #fef3c7;
-        color: #92400e;
+        background: #fff3e0;
+        color: #e65100;
         border-radius: 8px;
         padding: 1rem;
-        animation: fadeInUp 0.5s ease-out;
-        border: 1px solid #fde68a;
+        animation: fadeIn 0.5s ease-out;
+        border: 1px solid #ffe0b2;
+    }
+    
+    .stWarning * {
+        color: #e65100 !important;
     }
     
     .stInfo {
-        background: #dbeafe;
-        color: #1e40af !important;
+        background: #e3f2fd;
+        color: #1565c0;
         border-radius: 8px;
         padding: 1rem;
-        animation: fadeInUp 0.5s ease-out;
-        border: 1px solid #93c5fd;
+        animation: fadeIn 0.5s ease-out;
+        border: 1px solid #bbdefb;
     }
     
-    /* Ensure info/warning/error text is visible - 100% Druckkraft */
-    .stInfo p, .stInfo div, .stInfo span {
-        color: #1e40af !important;
-        font-weight: 700 !important;
-    }
-    
-    .stWarning p, .stWarning div, .stWarning span {
-        color: #92400e !important;
-        font-weight: 700 !important;
-    }
-    
-    .stSuccess p, .stSuccess div, .stSuccess span {
-        color: #065f46 !important;
-        font-weight: 700 !important;
-    }
-    
-    .stError p, .stError div, .stError span {
-        color: #991b1b !important;
-        font-weight: 700 !important;
+    .stInfo * {
+        color: #1565c0 !important;
     }
     
     /* PDF Cards */
     .pdf-card {
-        background: white;
+        background: #ffffff;
         border-radius: 12px;
         padding: 1.5rem;
         margin: 1rem 0;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        transition: all 0.3s ease;
-        animation: fadeInUp 0.5s ease-out;
-        border: 1px solid #e5e7eb;
-        border-left: 4px solid #2563eb;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+        animation: fadeIn 0.5s ease-out;
+        border: 1px solid #e0e0e0;
+        border-left: 3px solid #000000;
     }
     
     .pdf-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        border-color: #2563eb;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
-    /* Ensure PDF card text is visible - 100% Druckkraft */
-    .pdf-card p, .pdf-card h4, .pdf-card div, .pdf-card span {
+    .pdf-card * {
         color: #000000 !important;
-        font-weight: 700 !important;
     }
     
-    .pdf-card h4 {
-        font-weight: 800 !important;
-    }
-    
-    /* Selectbox Styling - 100% Druckkraft */
-    .stSelectbox > div > div > select {
-        border-radius: 8px;
-        border: 1px solid #d1d5db;
-        transition: all 0.3s ease;
-        background: white;
-        color: #000000 !important;
-        font-weight: 700 !important;
-    }
-    
-    .stSelectbox > div > div > select:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        outline: none;
-    }
-    
-    /* Spinner Animation */
-    .stSpinner > div {
-        border-top-color: #2563eb;
-        border-right-color: #3b82f6;
-    }
-    
-    /* Chat Input - 100% Druckkraft */
-    .stChatInput > div > div > input {
-        border-radius: 12px;
-        border: 1px solid #d1d5db;
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        background: white;
-        color: #000000 !important;
-        font-weight: 600 !important;
-    }
-    
-    .stChatInput > div > div > input:focus {
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        outline: none;
-    }
-    
-    /* Scrollbar Styling */
+    /* Scrollbar */
     ::-webkit-scrollbar {
         width: 8px;
     }
     
     ::-webkit-scrollbar-track {
-        background: #f3f4f6;
-        border-radius: 8px;
+        background: #f5f5f5;
     }
     
     ::-webkit-scrollbar-thumb {
-        background: #9ca3af;
-        border-radius: 8px;
+        background: #b0b0b0;
+        border-radius: 4px;
     }
     
     ::-webkit-scrollbar-thumb:hover {
-        background: #6b7280;
-    }
-    
-    /* Loading Animation */
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-    
-    .loading-spinner {
-        border: 3px solid rgba(37, 99, 235, 0.1);
-        border-top-color: #2563eb;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        animation: spin 1s linear infinite;
-        margin: 20px auto;
-    }
-    
-    /* ============================================
-       LOGIN CONTAINER - HÖCHSTE PRIORITÄT
-       Alle Texte müssen schwarz sein!
-       ============================================ */
-    
-    /* Überschreibe ALLE Styles für Login Container - Sehr spezifisch */
-    div.login-container,
-    div.login-container *,
-    .login-container,
-    .login-container * {
-        color: #000000 !important;
-    }
-    
-    /* Überschreibe spezifisch für alle Elemente */
-    .login-container h1,
-    .login-container h2,
-    .login-container h3,
-    .login-container h4,
-    .login-container h5,
-    .login-container h6,
-    .login-container p,
-    .login-container span,
-    .login-container div,
-    .login-container label,
-    .login-container a,
-    .login-container button {
-        color: #000000 !important;
-    }
-    
-    /* Streamlit Widgets im Login Container */
-    .login-container .stMarkdown,
-    .login-container .stMarkdown *,
-    .login-container .stText,
-    .login-container .stText *,
-    .login-container .stCaption,
-    .login-container .stCaption *,
-    .login-container [class*="stMarkdown"],
-    .login-container [class*="stMarkdown"] * {
-        color: #000000 !important;
-    }
-    
-    /* Tabs - Schwarz, außer aktiver Tab */
-    .login-container .stTabs [data-baseweb="tab"],
-    .login-container .stTabs [data-baseweb="tab"] *,
-    .login-container .stTabs [data-baseweb="tab"] span {
-        color: #000000 !important;
-    }
-    
-    .login-container .stTabs [aria-selected="true"],
-    .login-container .stTabs [aria-selected="true"] * {
-        color: #2563eb !important;
-    }
-    
-    /* Form Labels - Schwarz */
-    .login-container .stTextInput label,
-    .login-container .stTextInput span,
-    .login-container .stTextInput div,
-    .login-container label,
-    .login-container [class*="label"],
-    .login-container [class*="Label"],
-    .login-container [data-baseweb="label"] {
-        color: #000000 !important;
-        font-weight: 700 !important;
-    }
-    
-    /* Input Placeholder - Grau */
-    .login-container .stTextInput input::placeholder {
-        color: #9ca3af !important;
-    }
-    
-    /* Alle Streamlit Elemente - Schwarz */
-    .login-container [data-testid],
-    .login-container [data-testid] *,
-    .login-container [class*="st"],
-    .login-container [class*="st"] * {
-        color: #000000 !important;
-    }
-    
-    /* Überschreibe auch Baseweb Styles */
-    .login-container [data-baseweb],
-    .login-container [data-baseweb] * {
-        color: #000000 !important;
-    }
-    
-    /* Button Text bleibt weiß (für Buttons mit blauem Hintergrund) */
-    .login-container .stButton > button {
-        color: white !important;
+        background: #808080;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -794,7 +434,6 @@ def show_login_page():
                         st.session_state.user_id = user_id
                         st.session_state.username = username
                         st.success("Erfolgreich eingeloggt!")
-                        st.balloons()
                         st.rerun()
                     else:
                         st.error("Ungültige Anmeldedaten!")
@@ -816,8 +455,7 @@ def show_login_page():
                         user_id = user_service.create_user(new_username, new_password)
                         st.session_state.user_id = user_id
                         st.session_state.username = new_username
-                        st.success(" Registrierung erfolgreich!")
-                        st.balloons()
+                        st.success("Registrierung erfolgreich!")
                         st.rerun()
         
         st.markdown('</div>', unsafe_allow_html=True)
@@ -870,7 +508,6 @@ def show_main_app():
                     status_text.empty()
                     progress_bar.empty()
                     st.success(f"{len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
-                    st.balloons()
                     st.rerun()
                 else:
                     st.warning("Bitte wähle zuerst PDF-Dateien aus!")
