@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="PDF FAQ Bot", 
     layout="wide",
     initial_sidebar_state="expanded",
-    page_icon="🤖"
+    page_icon=""
 )
 
 # Custom CSS with animations and modern design
@@ -408,10 +408,10 @@ def show_login_page():
         with tab2:
             with st.form("register_form"):
                 st.markdown("#### Neuen Account erstellen")
-                new_username = st.text_input("👤 Neuer Benutzername", placeholder="Wähle einen Benutzernamen")
-                new_password = st.text_input("🔒 Neues Passwort", type="password", placeholder="Sicheres Passwort")
-                confirm_password = st.text_input("🔒 Passwort bestätigen", type="password", placeholder="Passwort wiederholen")
-                submit = st.form_submit_button("✨ Registrieren", use_container_width=True)
+                new_username = st.text_input(" Neuer Benutzername", placeholder="Wähle einen Benutzernamen")
+                new_password = st.text_input(" Neues Passwort", type="password", placeholder="Sicheres Passwort")
+                confirm_password = st.text_input(" Passwort bestätigen", type="password", placeholder="Passwort wiederholen")
+                submit = st.form_submit_button(" Registrieren", use_container_width=True)
                 
                 if submit:
                     if new_password != confirm_password:
@@ -448,7 +448,7 @@ def show_main_app():
     # Get user's PDFs
     pdfs = db.get_pdfs_by_user(st.session_state.user_id)
     
-    tab1, tab2 = st.tabs(["📤 PDFs hochladen", "💬 Fragen stellen"])
+    tab1, tab2 = st.tabs([" PDFs hochladen", " Fragen stellen"])
     
     with tab1:
         st.header(" PDF hochladen")
@@ -463,27 +463,27 @@ def show_main_app():
         
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
-            if st.button("⚡ PDFs verarbeiten", type="primary", use_container_width=True):
+            if st.button(" PDFs verarbeiten", type="primary", use_container_width=True):
                 if uploaded_files:
                     progress_bar = st.progress(0)
                     status_text = st.empty()
                     
                     for i, uploaded_file in enumerate(uploaded_files):
-                        status_text.text(f"🔄 Verarbeite {uploaded_file.name}... ({i+1}/{len(uploaded_files)})")
+                        status_text.text(f" Verarbeite {uploaded_file.name}... ({i+1}/{len(uploaded_files)})")
                         process_pdf(uploaded_file, st.session_state.user_id)
                         progress_bar.progress((i + 1) / len(uploaded_files))
                     
                     status_text.empty()
                     progress_bar.empty()
-                    st.success(f"✅ {len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
+                    st.success(f" {len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
                     st.balloons()
                     st.rerun()
                 else:
-                    st.warning("⚠️ Bitte wähle zuerst PDF-Dateien aus!")
+                    st.warning(" Bitte wähle zuerst PDF-Dateien aus!")
         
         # Show uploaded PDFs with cards
         if pdfs:
-            st.subheader("📚 Deine PDFs")
+            st.subheader(" Deine PDFs")
             for idx, (pdf_id, filename, upload_date) in enumerate(pdfs):
                 st.markdown(f"""
                 <div class="pdf-card">
@@ -492,13 +492,13 @@ def show_main_app():
                 </div>
                 """, unsafe_allow_html=True)
         else:
-            st.info("ℹ️ Noch keine PDFs hochgeladen. Lade deine ersten Dokumente hoch!")
+            st.info(" Noch keine PDFs hochgeladen. Lade deine ersten Dokumente hoch!")
     
     with tab2:
         col1, col2 = st.columns([3, 1])
         
         with col1:
-            st.header("💬 Chat mit deinen PDFs")
+            st.header(" Chat mit deinen PDFs")
             st.markdown("Stelle Fragen zu deinen hochgeladenen Dokumenten und erhalte präzise Antworten.")
         
         with col2:
@@ -509,18 +509,18 @@ def show_main_app():
         
         # PDF selection
         if pdfs:
-            pdf_options = ["📚 Alle PDFs"] + [f" {filename}" for pdf_id, filename, _ in pdfs]
+            pdf_options = [" Alle PDFs"] + [f" {filename}" for pdf_id, filename, _ in pdfs]
             selected_pdf = st.selectbox(" PDF auswählen", pdf_options, key="pdf_selector")
             
             selected_pdf_id = None
-            if selected_pdf != "📚 Alle PDFs":
+            if selected_pdf != " Alle PDFs":
                 # Find the matching PDF ID
                 for pdf_id, filename, _ in pdfs:
-                    if f"📄 {filename}" == selected_pdf:
+                    if f" {filename}" == selected_pdf:
                         selected_pdf_id = pdf_id
                         break
         else:
-            st.warning("⚠️ Bitte lade zuerst PDFs hoch, bevor du Fragen stellst!")
+            st.warning(" Bitte lade zuerst PDFs hoch, bevor du Fragen stellst!")
             selected_pdf_id = None
         
         # Initialize chat history in session state
@@ -540,7 +540,7 @@ def show_main_app():
                     if chat_item.get('source_pdf'):
                         st.caption(f" **Quelle:** {chat_item['source_pdf']} |  **Seite:** {chat_item['source_page']}")
         else:
-            st.info("👋 Stelle deine erste Frage, um zu beginnen! Der Bot wird in deinen PDFs nach Antworten suchen.")
+            st.info(" Stelle deine erste Frage, um zu beginnen! Der Bot wird in deinen PDFs nach Antworten suchen.")
         
         # Question input at the bottom (chat style)
         question = st.chat_input(" Stelle eine Frage zu deinen PDFs...")
