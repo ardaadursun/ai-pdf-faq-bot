@@ -102,6 +102,21 @@ st.markdown("""
         color: #C0C0C0 !important;
     }
     
+    /* Buttons in Login Container - White Text */
+    .login-container .stButton > button,
+    .login-container .stButton > button *,
+    .login-container button[type="submit"],
+    .login-container button[type="submit"] *,
+    .login-container [data-baseweb="button"],
+    .login-container [data-baseweb="button"] * {
+        color: #ffffff !important;
+    }
+    
+    .login-container .stButton > button:hover,
+    .login-container button[type="submit"]:hover {
+        color: #ffffff !important;
+    }
+    
     /* Main App Container - White Background, Black Text */
     .main-app-container {
         background: #ffffff;
@@ -174,8 +189,8 @@ st.markdown("""
     
     /* Buttons */
     .stButton > button {
-        background: #C0C0C0;
-        color: #FFFFFF;
+        background: #000000;
+        color: #ffffff;
         border: none;
         border-radius: 8px;
         padding: 0.75rem 2rem;
@@ -185,12 +200,12 @@ st.markdown("""
     }
     
     .stButton > button:hover {
-        background: #C0C0C0;
+        background: #333333;
         transform: translateY(-1px);
     }
     
     button[kind="primary"] {
-        background: #C0C0C0 !important;
+        background: #000000 !important;
         color: #ffffff !important;
     }
     
@@ -239,7 +254,7 @@ st.markdown("""
     
     /* File Uploader */
     .stFileUploader {
-        background: #C0C0C0;
+        background: #f9f9f9;
         border-radius: 12px;
         padding: 2rem;
         border: 2px dashed #d0d0d0;
@@ -248,12 +263,12 @@ st.markdown("""
     }
     
     .stFileUploader:hover {
-        border-color: #C0C0C0;
+        border-color: #000000;
         background: #f5f5f5;
     }
     
     .stFileUploader * {
-        color: #C0C0C0 !important;
+        color: #000000 !important;
     }
     
     /* Chat Messages */
@@ -714,3 +729,4 @@ def process_pdf(uploaded_file, user_id):
 
 if __name__ == "__main__":
     main()
+
