@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="PDF FAQ Bot", 
     layout="wide",
     initial_sidebar_state="expanded",
-    page_icon=""
+    page_icon="🤖"
 )
 
 # Custom CSS with animations and modern design
@@ -31,33 +31,35 @@ st.markdown("""
         padding-bottom: 2rem;
     }
     
-    /* Gradient Background */
+    /* Clean Professional Background */
     .stApp {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #f8fafc;
         background-attachment: fixed;
     }
     
     /* Login Page Styling */
     .login-container {
-        background: transparent;
+        background: white;
         backdrop-filter: none;
-        border-radius: 20px;
+        border-radius: 16px;
         padding: 3rem;
-        box-shadow: none;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         animation: fadeInUp 0.6s ease-out;
         margin: 2rem auto;
         max-width: 500px;
+        border: 1px solid #e5e7eb;
     }
     
     /* Main App Container */
     .main-app-container {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
+        background: white;
+        backdrop-filter: none;
+        border-radius: 16px;
         padding: 2rem;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         animation: fadeIn 0.5s ease-out;
         margin: 1rem 0;
+        border: 1px solid #e5e7eb;
     }
     
     /* Animations */
@@ -114,7 +116,7 @@ st.markdown("""
     
     /* Title Styling */
     h1 {
-        color: #2d3748;
+        color: #111827;
         font-weight: 700;
         font-size: 2.5rem;
         margin-bottom: 1rem;
@@ -122,39 +124,44 @@ st.markdown("""
     }
     
     h2, h3 {
-        color: #2d3748;
+        color: #1f2937;
         font-weight: 600;
         animation: fadeIn 0.5s ease-out;
     }
     
     /* Button Styling */
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #2563eb;
         color: white;
         border: none;
-        border-radius: 12px;
+        border-radius: 8px;
         padding: 0.75rem 2rem;
         font-weight: 600;
         font-size: 1rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         animation: fadeIn 0.5s ease-out;
     }
     
     .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        background: #1d4ed8;
     }
     
     .stButton > button:active {
         transform: translateY(0);
+        background: #1e40af;
     }
     
     /* Primary Button */
     button[kind="primary"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        background: #2563eb !important;
         animation: pulse 2s infinite;
+    }
+    
+    button[kind="primary"]:hover {
+        background: #1d4ed8 !important;
     }
     
     /* Tabs Styling */
@@ -164,53 +171,58 @@ st.markdown("""
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 10px 10px 0 0;
+        background: #f3f4f6;
+        border-radius: 8px 8px 0 0;
         padding: 1rem 2rem;
         font-weight: 500;
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-out;
+        color: #6b7280;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
-        background: rgba(255, 255, 255, 0.8);
+        background: #e5e7eb;
         transform: translateY(-2px);
+        color: #374151;
     }
     
     .stTabs [aria-selected="true"] {
         background: white;
-        color: #667eea;
+        color: #2563eb;
         font-weight: 600;
-        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        border-bottom: 2px solid #2563eb;
     }
     
     /* Form Styling */
     .stTextInput > div > div > input {
-        border-radius: 10px;
-        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
         padding: 0.75rem;
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-out;
+        background: white;
     }
     
     .stTextInput > div > div > input:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        outline: none;
     }
     
     /* File Uploader */
     .stFileUploader {
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 15px;
+        background: #f9fafb;
+        border-radius: 12px;
         padding: 2rem;
-        border: 2px dashed #cbd5e0;
+        border: 2px dashed #d1d5db;
         transition: all 0.3s ease;
         animation: fadeIn 0.5s ease-out;
     }
     
     .stFileUploader:hover {
-        border-color: #667eea;
-        background: rgba(255, 255, 255, 0.8);
+        border-color: #2563eb;
+        background: #f3f4f6;
     }
     
     /* Chat Messages */
@@ -220,125 +232,139 @@ st.markdown("""
     }
     
     .stChatMessage[data-testid="user"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #2563eb;
         color: white;
-        border-radius: 18px 18px 4px 18px;
+        border-radius: 16px 16px 4px 16px;
         padding: 1rem;
         margin-left: 20%;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
     
     .stChatMessage[data-testid="assistant"] {
-        background: #f7fafc;
-        border-radius: 18px 18px 18px 4px;
+        background: #f9fafb;
+        border-radius: 16px 16px 16px 4px;
         padding: 1rem;
         margin-right: 20%;
-        border: 1px solid #e2e8f0;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
     
     /* Sidebar Styling */
     .css-1d391kg {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+        background: white;
+        backdrop-filter: none;
+        border-right: 1px solid #e5e7eb;
     }
     
     /* Success/Error Messages */
     .stSuccess {
-        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-        color: white;
-        border-radius: 10px;
+        background: #d1fae5;
+        color: #065f46;
+        border-radius: 8px;
         padding: 1rem;
         animation: fadeInUp 0.5s ease-out;
+        border: 1px solid #a7f3d0;
     }
     
     .stError {
-        background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
-        color: white;
-        border-radius: 10px;
+        background: #fee2e2;
+        color: #991b1b;
+        border-radius: 8px;
         padding: 1rem;
         animation: fadeInUp 0.5s ease-out;
+        border: 1px solid #fecaca;
     }
     
     .stWarning {
-        background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
-        color: white;
-        border-radius: 10px;
+        background: #fef3c7;
+        color: #92400e;
+        border-radius: 8px;
         padding: 1rem;
         animation: fadeInUp 0.5s ease-out;
+        border: 1px solid #fde68a;
     }
     
     .stInfo {
-        background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-        color: white;
-        border-radius: 10px;
+        background: #dbeafe;
+        color: #1e40af;
+        border-radius: 8px;
         padding: 1rem;
         animation: fadeInUp 0.5s ease-out;
+        border: 1px solid #93c5fd;
     }
     
     /* PDF Cards */
     .pdf-card {
         background: white;
-        border-radius: 15px;
+        border-radius: 12px;
         padding: 1.5rem;
         margin: 1rem 0;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         transition: all 0.3s ease;
         animation: fadeInUp 0.5s ease-out;
-        border-left: 4px solid #667eea;
+        border: 1px solid #e5e7eb;
+        border-left: 4px solid #2563eb;
     }
     
     .pdf-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border-color: #2563eb;
     }
     
     /* Selectbox Styling */
     .stSelectbox > div > div > select {
-        border-radius: 10px;
-        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
         transition: all 0.3s ease;
+        background: white;
     }
     
     .stSelectbox > div > div > select:focus {
-        border-color: #667eea;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        outline: none;
     }
     
     /* Spinner Animation */
     .stSpinner > div {
-        border-top-color: #667eea;
-        border-right-color: #764ba2;
+        border-top-color: #2563eb;
+        border-right-color: #3b82f6;
     }
     
     /* Chat Input */
     .stChatInput > div > div > input {
-        border-radius: 25px;
-        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        border: 1px solid #d1d5db;
         padding: 1rem 1.5rem;
         font-size: 1rem;
         transition: all 0.3s ease;
+        background: white;
     }
     
     .stChatInput > div > div > input:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        outline: none;
     }
     
     /* Scrollbar Styling */
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
     }
     
     ::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
+        background: #f3f4f6;
+        border-radius: 8px;
     }
     
     ::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 10px;
+        background: #9ca3af;
+        border-radius: 8px;
     }
     
     ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        background: #6b7280;
     }
     
     /* Loading Animation */
@@ -347,8 +373,8 @@ st.markdown("""
     }
     
     .loading-spinner {
-        border: 3px solid rgba(102, 126, 234, 0.1);
-        border-top-color: #667eea;
+        border: 3px solid rgba(37, 99, 235, 0.1);
+        border-top-color: #2563eb;
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -408,10 +434,10 @@ def show_login_page():
         with tab2:
             with st.form("register_form"):
                 st.markdown("#### Neuen Account erstellen")
-                new_username = st.text_input(" Neuer Benutzername", placeholder="Wähle einen Benutzernamen")
-                new_password = st.text_input(" Neues Passwort", type="password", placeholder="Sicheres Passwort")
-                confirm_password = st.text_input(" Passwort bestätigen", type="password", placeholder="Passwort wiederholen")
-                submit = st.form_submit_button(" Registrieren", use_container_width=True)
+                new_username = st.text_input("👤 Neuer Benutzername", placeholder="Wähle einen Benutzernamen")
+                new_password = st.text_input("🔒 Neues Passwort", type="password", placeholder="Sicheres Passwort")
+                confirm_password = st.text_input("🔒 Passwort bestätigen", type="password", placeholder="Passwort wiederholen")
+                submit = st.form_submit_button("✨ Registrieren", use_container_width=True)
                 
                 if submit:
                     if new_password != confirm_password:
@@ -448,7 +474,7 @@ def show_main_app():
     # Get user's PDFs
     pdfs = db.get_pdfs_by_user(st.session_state.user_id)
     
-    tab1, tab2 = st.tabs([" PDFs hochladen", " Fragen stellen"])
+    tab1, tab2 = st.tabs(["📤 PDFs hochladen", "💬 Fragen stellen"])
     
     with tab1:
         st.header(" PDF hochladen")
@@ -463,27 +489,27 @@ def show_main_app():
         
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
-            if st.button(" PDFs verarbeiten", type="primary", use_container_width=True):
+            if st.button("⚡ PDFs verarbeiten", type="primary", use_container_width=True):
                 if uploaded_files:
                     progress_bar = st.progress(0)
                     status_text = st.empty()
                     
                     for i, uploaded_file in enumerate(uploaded_files):
-                        status_text.text(f" Verarbeite {uploaded_file.name}... ({i+1}/{len(uploaded_files)})")
+                        status_text.text(f"🔄 Verarbeite {uploaded_file.name}... ({i+1}/{len(uploaded_files)})")
                         process_pdf(uploaded_file, st.session_state.user_id)
                         progress_bar.progress((i + 1) / len(uploaded_files))
                     
                     status_text.empty()
                     progress_bar.empty()
-                    st.success(f" {len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
+                    st.success(f"✅ {len(uploaded_files)} PDF(s) erfolgreich verarbeitet!")
                     st.balloons()
                     st.rerun()
                 else:
-                    st.warning(" Bitte wähle zuerst PDF-Dateien aus!")
+                    st.warning("⚠️ Bitte wähle zuerst PDF-Dateien aus!")
         
         # Show uploaded PDFs with cards
         if pdfs:
-            st.subheader(" Deine PDFs")
+            st.subheader("📚 Deine PDFs")
             for idx, (pdf_id, filename, upload_date) in enumerate(pdfs):
                 st.markdown(f"""
                 <div class="pdf-card">
@@ -492,13 +518,13 @@ def show_main_app():
                 </div>
                 """, unsafe_allow_html=True)
         else:
-            st.info(" Noch keine PDFs hochgeladen. Lade deine ersten Dokumente hoch!")
+            st.info("ℹ️ Noch keine PDFs hochgeladen. Lade deine ersten Dokumente hoch!")
     
     with tab2:
         col1, col2 = st.columns([3, 1])
         
         with col1:
-            st.header(" Chat mit deinen PDFs")
+            st.header("💬 Chat mit deinen PDFs")
             st.markdown("Stelle Fragen zu deinen hochgeladenen Dokumenten und erhalte präzise Antworten.")
         
         with col2:
@@ -509,18 +535,18 @@ def show_main_app():
         
         # PDF selection
         if pdfs:
-            pdf_options = [" Alle PDFs"] + [f" {filename}" for pdf_id, filename, _ in pdfs]
+            pdf_options = ["📚 Alle PDFs"] + [f" {filename}" for pdf_id, filename, _ in pdfs]
             selected_pdf = st.selectbox(" PDF auswählen", pdf_options, key="pdf_selector")
             
             selected_pdf_id = None
-            if selected_pdf != " Alle PDFs":
+            if selected_pdf != "📚 Alle PDFs":
                 # Find the matching PDF ID
                 for pdf_id, filename, _ in pdfs:
-                    if f" {filename}" == selected_pdf:
+                    if f"📄 {filename}" == selected_pdf:
                         selected_pdf_id = pdf_id
                         break
         else:
-            st.warning(" Bitte lade zuerst PDFs hoch, bevor du Fragen stellst!")
+            st.warning("⚠️ Bitte lade zuerst PDFs hoch, bevor du Fragen stellst!")
             selected_pdf_id = None
         
         # Initialize chat history in session state
@@ -540,7 +566,7 @@ def show_main_app():
                     if chat_item.get('source_pdf'):
                         st.caption(f" **Quelle:** {chat_item['source_pdf']} |  **Seite:** {chat_item['source_page']}")
         else:
-            st.info(" Stelle deine erste Frage, um zu beginnen! Der Bot wird in deinen PDFs nach Antworten suchen.")
+            st.info("👋 Stelle deine erste Frage, um zu beginnen! Der Bot wird in deinen PDFs nach Antworten suchen.")
         
         # Question input at the bottom (chat style)
         question = st.chat_input(" Stelle eine Frage zu deinen PDFs...")
