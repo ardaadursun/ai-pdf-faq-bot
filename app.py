@@ -113,12 +113,24 @@ st.markdown("""
         border: 1px solid #e0e0e0;
     }
     
+    /* Main App Container - Black Text */
     .main-app-container * {
         color: #000000 !important;
     }
     
-    /* Buttons in Main App Container - White Text */
-    .main-app-container .stButton > button {
+    /* Buttons in Main App Container - White Text - Highest Priority */
+    .main-app-container .stButton > button,
+    .main-app-container .stButton > button > span,
+    .main-app-container .stButton > button > div,
+    .main-app-container .stButton > button > p,
+    .main-app-container .stButton button,
+    .main-app-container button.stButton {
+        color: #ffffff !important;
+        background: #000000 !important;
+    }
+    
+    .main-app-container .stButton > button:hover {
+        background: #333333 !important;
         color: #ffffff !important;
     }
     
@@ -397,6 +409,29 @@ st.markdown("""
     
     ::-webkit-scrollbar-thumb:hover {
         background: #808080;
+    }
+    
+    /* Force white text for all buttons in main-app-container - Highest specificity */
+    div.main-app-container div[data-testid="column"] button,
+    div.main-app-container div[data-testid="column"] .stButton button,
+    div.main-app-container div[data-testid="column"] .stButton button span,
+    div.main-app-container div[data-testid="column"] .stButton button div,
+    div.main-app-container div[data-testid="column"] .stButton button p {
+        color: #ffffff !important;
+        background-color: #000000 !important;
+    }
+    
+    div.main-app-container div[data-testid="column"] .stButton button:hover {
+        background-color: #333333 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Universal button rule for main-app-container */
+    .main-app-container button,
+    .main-app-container button *,
+    .main-app-container [class*="stButton"] button,
+    .main-app-container [class*="stButton"] button * {
+        color: #ffffff !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -679,4 +714,3 @@ def process_pdf(uploaded_file, user_id):
 
 if __name__ == "__main__":
     main()
-
