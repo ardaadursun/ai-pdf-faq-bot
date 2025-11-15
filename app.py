@@ -185,7 +185,7 @@ st.markdown("""
         font-weight: 500;
         transition: all 0.2s ease;
         animation: fadeIn 0.5s ease-out;
-        color: #000000 !important;
+        color: #ffffff !important;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
