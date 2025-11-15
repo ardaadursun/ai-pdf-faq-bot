@@ -239,7 +239,7 @@ st.markdown("""
     
     /* File Uploader */
     .stFileUploader {
-        background: #f9f9f9;
+        background: #C0C0C0;
         border-radius: 12px;
         padding: 2rem;
         border: 2px dashed #d0d0d0;
