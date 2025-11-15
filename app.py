@@ -149,41 +149,6 @@ st.markdown("""
         border: 1px solid #e5e7eb;
     }
     
-    /* Login Container - Alle Texte schwarz */
-    .login-container h1,
-    .login-container h2,
-    .login-container h3,
-    .login-container h4,
-    .login-container p,
-    .login-container span,
-    .login-container div,
-    .login-container label,
-    .login-container * {
-        color: #000000 !important;
-    }
-    
-    /* Tabs im Login Container - Schwarz */
-    .login-container .stTabs [data-baseweb="tab"] {
-        color: #000000 !important;
-    }
-    
-    .login-container .stTabs [aria-selected="true"] {
-        color: #2563eb !important;
-    }
-    
-    /* Form Labels im Login Container - Schwarz */
-    .login-container .stTextInput label,
-    .login-container .stTextInput span,
-    .login-container label {
-        color: #000000 !important;
-        font-weight: 700 !important;
-    }
-    
-    /* Input Placeholder - Grau (für bessere UX) */
-    .login-container .stTextInput input::placeholder {
-        color: #9ca3af !important;
-    }
-    
     /* Main App Container */
     .main-app-container {
         background: white;
@@ -694,6 +659,95 @@ st.markdown("""
         height: 40px;
         animation: spin 1s linear infinite;
         margin: 20px auto;
+    }
+    
+    /* ============================================
+       LOGIN CONTAINER - HÖCHSTE PRIORITÄT
+       Alle Texte müssen schwarz sein!
+       ============================================ */
+    
+    /* Überschreibe ALLE Styles für Login Container - Sehr spezifisch */
+    div.login-container,
+    div.login-container *,
+    .login-container,
+    .login-container * {
+        color: #000000 !important;
+    }
+    
+    /* Überschreibe spezifisch für alle Elemente */
+    .login-container h1,
+    .login-container h2,
+    .login-container h3,
+    .login-container h4,
+    .login-container h5,
+    .login-container h6,
+    .login-container p,
+    .login-container span,
+    .login-container div,
+    .login-container label,
+    .login-container a,
+    .login-container button {
+        color: #000000 !important;
+    }
+    
+    /* Streamlit Widgets im Login Container */
+    .login-container .stMarkdown,
+    .login-container .stMarkdown *,
+    .login-container .stText,
+    .login-container .stText *,
+    .login-container .stCaption,
+    .login-container .stCaption *,
+    .login-container [class*="stMarkdown"],
+    .login-container [class*="stMarkdown"] * {
+        color: #000000 !important;
+    }
+    
+    /* Tabs - Schwarz, außer aktiver Tab */
+    .login-container .stTabs [data-baseweb="tab"],
+    .login-container .stTabs [data-baseweb="tab"] *,
+    .login-container .stTabs [data-baseweb="tab"] span {
+        color: #000000 !important;
+    }
+    
+    .login-container .stTabs [aria-selected="true"],
+    .login-container .stTabs [aria-selected="true"] * {
+        color: #2563eb !important;
+    }
+    
+    /* Form Labels - Schwarz */
+    .login-container .stTextInput label,
+    .login-container .stTextInput span,
+    .login-container .stTextInput div,
+    .login-container label,
+    .login-container [class*="label"],
+    .login-container [class*="Label"],
+    .login-container [data-baseweb="label"] {
+        color: #000000 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Input Placeholder - Grau */
+    .login-container .stTextInput input::placeholder {
+        color: #9ca3af !important;
+    }
+    
+    /* Alle Streamlit Elemente - Schwarz */
+    .login-container [data-testid],
+    .login-container [data-testid] *,
+    .login-container [class*="st"],
+    .login-container [class*="st"] * {
+        color: #000000 !important;
+    }
+    
+    /* Überschreibe auch Baseweb Styles */
+    .login-container [data-baseweb],
+    .login-container [data-baseweb] * {
+        color: #000000 !important;
+    }
+    
+    /* Button Text bleibt weiß (für Buttons mit blauem Hintergrund) */
+    .login-container .stButton > button {
+        color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
