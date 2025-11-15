@@ -49,6 +49,93 @@ st.markdown("""
         background-attachment: fixed;
     }
     
+    /* Streamlit Header Menu - Weiße Schriften und Symbole */
+    header[data-testid="stHeader"] {
+        background: #1f2937 !important;
+    }
+    
+    /* Header Menu Buttons and Text - Weiß */
+    header[data-testid="stHeader"] button,
+    header[data-testid="stHeader"] a,
+    header[data-testid="stHeader"] span,
+    header[data-testid="stHeader"] div,
+    header[data-testid="stHeader"] p {
+        color: white !important;
+    }
+    
+    /* Header Icons - Weiß */
+    header[data-testid="stHeader"] svg,
+    header[data-testid="stHeader"] path {
+        fill: white !important;
+        stroke: white !important;
+        color: white !important;
+    }
+    
+    /* Header Menu Items - Weiß */
+    header[data-testid="stHeader"] .stToolbar button,
+    header[data-testid="stHeader"] .stToolbar a {
+        color: white !important;
+        fill: white !important;
+    }
+    
+    /* Header Menu Hover */
+    header[data-testid="stHeader"] button:hover,
+    header[data-testid="stHeader"] a:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+    }
+    
+    /* Dropdown Menu - Dunkler Hintergrund, weiße Schrift */
+    [data-baseweb="popover"] {
+        background: #1f2937 !important;
+    }
+    
+    [data-baseweb="popover"] li,
+    [data-baseweb="popover"] a,
+    [data-baseweb="popover"] span,
+    [data-baseweb="popover"] div {
+        color: white !important;
+    }
+    
+    [data-baseweb="popover"] li:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Share, Settings, etc. Menu Items */
+    [data-baseweb="menu"] li,
+    [data-baseweb="menu"] a,
+    [data-baseweb="menu"] span {
+        color: white !important;
+    }
+    
+    [data-baseweb="menu"] li:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Spezifische Header-Elemente - Weiß */
+    header[data-testid="stHeader"] [class*="share"],
+    header[data-testid="stHeader"] [class*="menu"],
+    header[data-testid="stHeader"] [class*="button"],
+    header[data-testid="stHeader"] [class*="icon"] {
+        color: white !important;
+        fill: white !important;
+    }
+    
+    /* Alle SVG-Elemente im Header - Weiß */
+    header[data-testid="stHeader"] * svg,
+    header[data-testid="stHeader"] * path,
+    header[data-testid="stHeader"] * circle,
+    header[data-testid="stHeader"] * rect {
+        fill: white !important;
+        stroke: white !important;
+    }
+    
+    /* Text im Header - Weiß und kräftig */
+    header[data-testid="stHeader"] * {
+        color: white !important;
+        font-weight: 600 !important;
+    }
+    
     /* Login Page Styling */
     .login-container {
         background: white;
